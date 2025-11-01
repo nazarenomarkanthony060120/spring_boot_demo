@@ -1,36 +1,21 @@
-package com.example.demo.model.user;
+package com.example.demo.application.dto.user;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "users")
-public class User {
-
-    @Id
-    private String id; // MongoDB uses String (ObjectId)
+public class UserRequestDTO {
     private String name;
     private Long phoneNumber;
     private String email;
     private String password;
 
-    public User() {}
+    public UserRequestDTO() {}
 
-    public User(String id, String name, Long phoneNumber, String email, String password) {
-        this.id = id;
+    public UserRequestDTO(String name, Long phoneNumber, String email, String password) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    // Getters and Setters
     public String getName() {
         return name;
     }
