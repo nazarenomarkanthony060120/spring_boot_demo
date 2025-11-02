@@ -1,7 +1,10 @@
 package com.example.demo.model.user;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 
 @Document(collection = "users")
 public class User {
@@ -13,6 +16,9 @@ public class User {
     private String email;
     private String password;
 
+    @CreatedDate
+    private LocalDateTime createDate;
+
     public User() {}
 
     public User(String id, String name, Long phoneNumber, String email, String password) {
@@ -21,6 +27,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
+        this.createDate = LocalDateTime.now();
     }
 
     public String getId() {
@@ -43,6 +50,11 @@ public class User {
         return phoneNumber;
     }
 
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -61,5 +73,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
     }
 }

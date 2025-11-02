@@ -2,8 +2,9 @@ package com.example.demo.model.history;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 
 @Document(collection = "history")
 public class History {
@@ -14,58 +15,26 @@ public class History {
     private String message;
 
     @CreatedDate
-    private String createDate;
-
-    @LastModifiedBy
-    private String updateDate;
+    private LocalDateTime createDate;
 
     public History() {}
 
-    public History(String id, String userId, String message, String createDate, String updateDate) {
-        this.id = id;
+    public History(String userId, String message) {
         this.userId = userId;
         this.message = message;
-        this.createDate = createDate;
-        this.updateDate = updateDate;
+        this.createDate = LocalDateTime.now();
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    // getters and setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    public String getMessage() { return message; }
+    public void setMessage(String message) { this.message = message; }
 
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
-    public void setUpdateDate(String updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getCreateDate() {
-        return createDate;
-    }
-
-    public String getUpdateDate() {
-        return updateDate;
-    }
+    public LocalDateTime getCreateDate() { return createDate; }
+    public void setCreateDate(LocalDateTime createDate) { this.createDate = createDate; }
 }

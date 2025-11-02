@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
     @GetMapping("/1")
     public String getMethodName(@RequestParam String param) {

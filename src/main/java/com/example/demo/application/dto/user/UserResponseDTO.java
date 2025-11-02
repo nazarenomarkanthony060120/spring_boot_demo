@@ -7,7 +7,6 @@ public class UserResponseDTO {
         this.id = id;
     }
 
-    // Getters only (optional)
     public String getId() {
         return id;
     }
